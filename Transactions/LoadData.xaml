@@ -1,0 +1,31 @@
+﻿<Page x:Class="Transactions.LoadData"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Transactions" d:DataContext="{d:DesignInstance Type=local:LoadDataViewModel}"
+      mc:Ignorable="d"
+      d:DesignHeight="650" d:DesignWidth="1400"
+      Title="Загрузка данных">
+    <Grid Background="#c7c9c8">
+        <Border MinWidth="450" MinHeight="250" Margin="20" Background="#e8e9ed" VerticalAlignment="Center" Padding="50" MaxWidth="1240" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="25" Color="DarkGray" ShadowDepth="3"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Загрузка данных" FontSize="20" FontWeight="Bold" Margin="0 0 0 20"/>
+                <StackPanel Orientation="Horizontal" Height="50" >
+                    <Button Width="220" Height="45"  Content="Загрузить историю сделок" Command="{Binding ShowLoadTradeHistory}"/>
+                    <Button  Width="220" Height="45" Margin="10,0,0,0" Content="Добавить сделку вручную" Command="{Binding ShowAddTrade}" />
+                    <Button  Width="220" Height="45" Margin="10,0,0,0" Content="Записать баланс счета вручную" Command="{Binding ShowAddBalance}"/>
+                    <Button  Width="220" Height="45" Margin="10,0,0,0" Content="Добавить инструмент" Command="{Binding ShowAddInstrument}"/>
+                    <Button  Width="220" Height="45" Margin="10,0,0,0" Content="Добавить брокерский аккаунт" Command="{Binding ShowAddBrokerageAccount}"/>
+                </StackPanel>
+                
+                <ContentControl Content="{Binding CurrentView}" Margin="0,10,0,10"/>
+
+                <Button HorizontalAlignment="Right"  Width="120" Height="45" Content="Главный экран" Click="Button_Back_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

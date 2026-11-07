@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Transactions.AnalysisMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Transactions" d:DataContext="{d:DesignInstance Type=local:AnalysisMainViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1500">
+    <Grid Background="#e8e9ed">
+
+        <!-- Разметка на 3 столбца -->
+        <Grid Height="666" Margin="7,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="600" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Столбец 1 -->
+                <StackPanel Grid.Column="0" >
+                    <CheckBox Margin="0, 0, 0, 10" Name="dateCheckBox" Content="Включить выбор дат" IsChecked="{Binding IsDateEnabled, Mode=TwoWay}" FontSize="14" />
+
+                    <TextBlock Text="Дата начала:" FontSize="14"/>
+                    <DatePicker GotFocus="DatePicker1_GotFocus" Tag="Выберете дату" Margin="0, 0, 0, 10" SelectedDateFormat="Short" Height="35" Width="220" HorizontalAlignment="Left" Name="datePicker1" SelectedDate="{Binding StartDate}" IsEnabled="{Binding IsDateEnabled}" />
+                    <TextBlock x:Name="errorMessageDate1" Foreground="#db1d0f" Visibility="Collapsed">
+                            Заполните это поле корректно
+                    </TextBlock>
+
+                    <TextBlock Text="Дата окончания:" FontSize="14"/>
+                    <DatePicker GotFocus="DatePicker2_GotFocus" Tag="Выберете дату" Margin="0, 0, 0, 10" SelectedDateFormat="Short" Height="35" Width="220" HorizontalAlignment="Left" Name="datePicker2" SelectedDate="{Binding EndDate}" IsEnabled="{Binding IsDateEnabled}" />
+                    <TextBlock x:Name="errorMessageDate2" Foreground="#db1d0f" Visibility="Collapsed">
+                            Заполните это поле корректно
+                    </TextBlock>
+
+                    <TextBlock Margin="0, 10, 0, 0" Text="Выберете инструменты:" FontSize="14"/>
+                    <Button Name="buttonChooseInstruments" Content="Выбрать все / Снять все" Width="180" Height="35" Margin="0,0,0,0" Command="{Binding ToggleSelectAllCommand}" HorizontalAlignment="Left" />
+                    <ListBox Name="listBoxInstruments" ItemsSource="{Binding Instruments}" SelectionMode="Multiple" Height="150">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}">
+                                    <CheckBox.Content>
+                                        <TextBlock>
+                                                <Run Text="{Binding ticker}" />
+                                                <Run Text=" - " />
+                                                <Run Text="{Binding name}" />
+                                        </TextBlock>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <TextBlock Margin="0,20,0,0" Text="Выберете направление сделок:" FontSize="14"/>
+                    <ComboBox Name="comboBoxDirection" Style="{StaticResource WatermarkedComboBoxStyle}"  HorizontalAlignment="Left" Tag="Выберете направление сделки"
+                             Width="230" Height="35" GotFocus="СomboBoxDirection_GotFocus">
+                        <ComboBoxItem Content="Лонг"/>
+                        <ComboBoxItem Content="Шорт"/>
+                        <ComboBoxItem Content="Оба"/>
+                    </ComboBox>
+                    <TextBlock x:Name="errorMessageDirection" Foreground="#db1d0f" Visibility="Collapsed">
+                            Выберете один из вариантов
+                    </TextBlock>
+
+                    <TextBlock Margin="0, 20, 0, 0" Text="Выберете счета:" FontSize="14"/>
+                    <Button Name="buttonChooseAccounts" Content="Выбрать все / Снять все" Width="180" Height="35" Margin="0,0,0,0" Command="{Binding ToggleSelectAllCommand}" HorizontalAlignment="Left" />
+                    <ListBox Name ="listBoxAccounts" ItemsSource="{Binding UserAccounts}" SelectionMode="Multiple" Height="100">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}">
+                                    <TextBlock>
+                                            <Run Text="{Binding DisplayName}" />
+                                    </TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </StackPanel>
+
+                <!-- Столбец 2 -->
+                <StackPanel Grid.Column="1" Margin="10, 0, 0, 0">
+                    <DataGrid Height="600" x:Name="TradesDataGrid" HorizontalScrollBarVisibility="Auto" ItemsSource="{Binding Trades}" AutoGenerateColumns="False"
+                             IsReadOnly="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Binding="{Binding userAccountID}" Width="*" Visibility="Collapsed" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding number}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Счет" Binding="{Binding account}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Инструмент" Binding="{Binding ticker}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Направление" Binding="{Binding direction}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Цена открытия" Binding="{Binding openingPrice}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Цена закрытия" Binding="{Binding closingPrice}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Кол-во лотов" Binding="{Binding lots}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Результат" Binding="{Binding result}" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Ком-сия брокера" Binding="{Binding brokerCommission}" Width="110" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Ком-сия биржи" Binding="{Binding exchangeCommission}" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Итог" Binding="{Binding total}" Width="*" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Margin="0, 10, 0, 0" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!-- Левая часть -->
+                        <ColumnDefinition Width="Auto" />
+                        <!-- Правая часть -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Левая кнопка -->
+                    <Button HorizontalAlignment="Left" Width="150" Height="45" Margin="0,0,0,0" Content="Отобрать сделки" Click="Button_Choose_Click" />
+
+                    <!-- Правая группа кнопок -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Name="ButtonResStats" HorizontalAlignment="Left" Width="220" Height="45" Content="Динамика изменения баланса" Command="{Binding ShowResultStats}" />
+                        <Button Name="ButtonWinrateStats" HorizontalAlignment="Left" Width="220" Height="45" Margin="5,0,0,0" Content="Динамика изменения Winrate" Command="{Binding ShowWinrateStats}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

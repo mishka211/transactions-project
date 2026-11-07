@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Transactions.WinrateStats"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d:DataContext="{d:DesignInstance Type=local:AnalysisMainViewModel}"
+             xmlns:local="clr-namespace:Transactions" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="800">
+    <Grid Background="#e8e9ed">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <DataGrid Height="200" x:Name="TradesDataGrid" HorizontalScrollBarVisibility="Auto" ItemsSource="{Binding Trades}" AutoGenerateColumns="False"
+                             IsReadOnly="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Binding="{Binding userAccountID}" Width="*" Visibility="Collapsed" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Номер" Binding="{Binding number}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Счет" Binding="{Binding account}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Инструмент" Binding="{Binding ticker}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Направление" Binding="{Binding direction}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Цена открытия" Binding="{Binding openingPrice}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Цена закрытия" Binding="{Binding closingPrice}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Кол-во лотов" Binding="{Binding lots}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Результат" Binding="{Binding result}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Ком-сия брокера" Binding="{Binding brokerCommission}" Width="110" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Ком-сия биржи" Binding="{Binding exchangeCommission}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Итог" Binding="{Binding total}" Width="*" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0, 10, 0, 10">
+                    <TextBlock Text="Выберете промежуток, за который вы хотите увидеть процент удачных сделок:" FontSize="14"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1" Margin="0, 0, 0, 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button Width="100" Height="45" Content="10 сделок" Click="Button_SplitTo10Days_Click" />
+                        <Button Width="100" Height="45" Content="20 сделок" Click="Button_SplitTo20Days_Click" />
+                        <Button Width="100" Height="45" Content="50 сделок" Click="Button_SplitTo50Days_Click" />
+                        <Button Width="100" Height="45" Content="100 сделок" Click="Button_SplitTo100Days_Click" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBox x:Name="textBoxPeriod" Height="40" Width="120" Tag="Введите период" GotFocus="textBoxPeriod_GotFocus"/>
+                        <TextBlock x:Name="errorMessagePeriod" Foreground="#db1d0f" Visibility="Collapsed">
+                            Заполните это поле корректно
+                        </TextBlock>
+                        <Button Width="100" Height="45" Content="Выбрать" Click="Button_SplitToPeriod_Click" />
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Row="2" Margin="0, 10, 0, 10">
+                    <CheckBox Name="checkBox" Content="Учитывать безубыточные сделки" FontSize="14" />
+                </StackPanel>
+            </Grid>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" >
+            <lvc:CartesianChart Name="CartesianChart" Series="{Binding SeriesCollection}" Height="290"/>
+        </StackPanel>
+        
+        <Button Grid.Row="3" HorizontalAlignment="Right" Width="100" Height="45" Content="Назад" Command="{Binding BackToMainCommand}"/>
+    </Grid>
+</UserControl>

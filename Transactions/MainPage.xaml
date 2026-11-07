@@ -1,0 +1,26 @@
+﻿<Page x:Class="Transactions.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Transactions"
+      mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Анализ сделок" Height="650" Width="1200">
+    <Grid Background="#c7c9c8">
+        <Border MinWidth="450" Margin="20" Background="#e8e9ed" VerticalAlignment="Center" Padding="50" MaxWidth="1000" CornerRadius="30">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="25" Color="DarkGray" ShadowDepth="3"/>
+                </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Аналитика сделок на фондовом рынке" FontSize="20" FontWeight="Bold" Margin="0 0 0 20"/>
+                <Grid Margin="0 0 0 20">
+                    <Button HorizontalAlignment="Left" Width="270" Height="45" Content="Общие теоретические сведения" Click="Button_Theory_Click"/>
+                    <Button HorizontalAlignment="Center" Width="270" Height="45" Content="Анализ данных" Click="Button_Analysis_Click"/>
+                    <Button HorizontalAlignment="Right" Width="270" Height="45" Content="Обновить данные или загрузить новые" Click="Button_LoadData_Click"/>
+                </Grid>
+                <Button HorizontalAlignment="Right" Width="100" Height="45" Content="Выйти" Click="Button_Logout_Click"/>
+            </StackPanel>
+        </Border>
+        </Grid>
+</Page>

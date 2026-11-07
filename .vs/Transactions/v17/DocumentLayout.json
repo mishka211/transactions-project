@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Mishk\\source\\repos\\Transactions\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E357C58-0B53-4BCE-A05D-CF4D415521B8}|Transactions\\Transactions.csproj|c:\\users\\mishk\\source\\repos\\transactions\\transactions\\addtrade.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5E357C58-0B53-4BCE-A05D-CF4D415521B8}|Transactions\\Transactions.csproj|solutionrelative:transactions\\addtrade.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E357C58-0B53-4BCE-A05D-CF4D415521B8}|Transactions\\Transactions.csproj|c:\\users\\mishk\\source\\repos\\transactions\\transactions\\instrumentsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E357C58-0B53-4BCE-A05D-CF4D415521B8}|Transactions\\Transactions.csproj|solutionrelative:transactions\\instrumentsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E357C58-0B53-4BCE-A05D-CF4D415521B8}|Transactions\\Transactions.csproj|c:\\users\\mishk\\source\\repos\\transactions\\transactions\\addtrade.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E357C58-0B53-4BCE-A05D-CF4D415521B8}|Transactions\\Transactions.csproj|solutionrelative:transactions\\addtrade.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InstrumentsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Mishk\\source\\repos\\Transactions\\Transactions\\InstrumentsViewModel.cs",
+              "RelativeDocumentMoniker": "Transactions\\InstrumentsViewModel.cs",
+              "ToolTip": "C:\\Users\\Mishk\\source\\repos\\Transactions\\Transactions\\InstrumentsViewModel.cs",
+              "RelativeToolTip": "Transactions\\InstrumentsViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T12:12:27.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddTrade.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Mishk\\source\\repos\\Transactions\\Transactions\\AddTrade.xaml.cs",
+              "RelativeDocumentMoniker": "Transactions\\AddTrade.xaml.cs",
+              "ToolTip": "C:\\Users\\Mishk\\source\\repos\\Transactions\\Transactions\\AddTrade.xaml.cs",
+              "RelativeToolTip": "Transactions\\AddTrade.xaml.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAIwLMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T12:04:14.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddTrade.xaml",
+              "DocumentMoniker": "C:\\Users\\Mishk\\source\\repos\\Transactions\\Transactions\\AddTrade.xaml",
+              "RelativeDocumentMoniker": "Transactions\\AddTrade.xaml",
+              "ToolTip": "C:\\Users\\Mishk\\source\\repos\\Transactions\\Transactions\\AddTrade.xaml",
+              "RelativeToolTip": "Transactions\\AddTrade.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-18T12:03:43.906Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

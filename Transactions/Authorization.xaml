@@ -1,0 +1,35 @@
+﻿<Window x:Class="Transactions.Authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Transactions"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Авторизация" Height="650" Width="1200">
+    <Grid Background="#c7c9c8">
+        <Border MinWidth="450" Margin="20" Background="#e8e9ed" VerticalAlignment="Center" Padding="50" MaxWidth="1000" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="25" Color="DarkGray" ShadowDepth="3"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Авторизация" FontSize="20" FontWeight="Bold" Margin="0 0 0 20"/>
+                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource CustomFloatingHintTextBox}" GotFocus="TextBoxLogin_GotFocus" />
+                <TextBlock x:Name="ErrorMessageLogin" Foreground="#db1d0f" Visibility="Collapsed">
+                    Заполните это поле
+                </TextBlock>
+                <PasswordBox x:Name="passBoxPassword" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource CustomFloatingHintPasswordBox}" GotFocus="PassBox_GotFocus" />
+                <TextBlock x:Name="ErrorMessagePass1" Foreground="#db1d0f" Visibility="Collapsed">
+                    Заполните это поле
+                </TextBlock>
+                <TextBlock x:Name="ErrorMessagePass2" Foreground="#db1d0f" Visibility="Collapsed">
+                    Неверный логин или пароль. Повторите попытку
+                </TextBlock>
+                <Grid Margin="0 20 0 10">
+                    <Button HorizontalAlignment="Left" Width="150" Height="45" Content="Регистрация" Click="Button_Reg_Click"/>
+                    <Button HorizontalAlignment="Right" Width="100" Height="45" Content="Войти" Click="Button_Enter_Click"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

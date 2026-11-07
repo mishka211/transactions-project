@@ -1,0 +1,54 @@
+﻿<Page x:Class="Transactions.Theory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Transactions"
+       mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Теория" Height="650" Width="1200">
+    <Grid Background="#c7c9c8">
+        <Border MinWidth="450" Margin="20" Background="#e8e9ed" VerticalAlignment="Center" Padding="50" MaxWidth="1100" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="25" Color="DarkGray" ShadowDepth="3"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Теория" FontSize="20" FontWeight="Bold" Margin="0 0 0 20"/>
+                <Grid Height="400">
+                    <ScrollViewer>
+                        <TextBlock TextWrapping="Wrap" FontSize="16" LineHeight="22">  
+                            <Run Text="Брокеры" FontWeight="Bold" FontSize="18"/>
+                            <LineBreak/>
+                           <Run Text="Для торговли на фондвовом рынке необходимо иметь брокерский счет. Его можно завести у одного из брокеров в России. 
+                                Обычно, любой крупный банк предоставляет брокерские услуги(Сбер, Т-банк, Альфа-банк и т.д.). Также существуют организации,
+                                которые специализируются на подобных услугах, например, Финам. Разница между ними заключается в тарфиных планах, то есть 
+                                какая комиссия будет браться за оказание брокерских услуг. Также у каждого брокера есть свои виды счетов, которые, например,
+                                могут предоставлять меньшую комиссию для торговли фьючерсами, поэтому выбирать брокера стоит исходя из собственной торговой стратегии."/>
+                            <LineBreak/><LineBreak/>
+                        
+                            <Run Text="Функционал программы" FontWeight="Bold" FontSize="18"/>
+                            <LineBreak/>
+                            <Run>Это приложение предназначено для анализа истории своих сделок. Обновлять и добавлять информацию о сделках и всем необходимом 
+                                 для корректной работы программы можно в разделе "Обновить данные или загрузить новые". В нем вы можете загрузить историю сделок
+                                 из Excel-файла, добавить сделку вручную, записать баланс счета в конкретную дату, добавить новый счет (в разделе "Обновить баланс"),
+                                 добавить новый брокерский счет или инструмент, перейдя по соответствующей кнопке. Там же можно редактировать  и удалять информацию.
+                            </Run> 
+                            <LineBreak/>
+                            <Run> Также необходимо отметить, что эта программа предназначена для работы с двумя типами инструментов: акциями и фьючерсами.
+                            </Run>
+                            <Run>Информация об инструментах и брокерских счетах необходима для корректного рассчета результатов сделок и комиссий по ним.
+                            </Run>
+                            <LineBreak/><LineBreak/>
+                        
+                            <Run>В разделе "Анализ данных" можно выбрать сделки, по которым необходимо провести анализ, и далее выбрать тип анализа. На основе этих данных
+                                 можно делать вывод об успехе или его отсутствии по тем или иным инструментам или стратегиям.
+                            </Run>    
+                        </TextBlock>
+                    </ScrollViewer>
+                </Grid>
+                <Button HorizontalAlignment="Right" Width="100" Height="45" Content="Назад" Click="Button_Back_Click"/>
+            </StackPanel>
+
+        </Border>
+    </Grid>
+</Page>
